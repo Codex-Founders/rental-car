@@ -14,15 +14,15 @@
 <!-- CURSOR -->
 <div id="cursor-dot"></div>
 <svg id="cursor-car" viewBox="0 0 80 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M6 22 L14 10 L30 6 L52 6 L66 12 L74 18 L74 26 L6 26 Z" fill="#1a1a2e" stroke="#3b82f6" stroke-width="1.5"/>
-  <path d="M16 10 L28 4 L50 4 L62 10 Z" fill="#2a2a40" stroke="#3b82f6" stroke-width="1"/>
-  <path d="M19 10 L27 5 L38 5 L38 10 Z" fill="#3b82f6" opacity="0.4"/>
-  <path d="M40 5 L50 5 L58 10 L40 10 Z" fill="#3b82f6" opacity="0.4"/>
-  <circle cx="20" cy="26" r="6" fill="#111" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="20" cy="26" r="2.5" fill="#3b82f6"/>
-  <circle cx="58" cy="26" r="6" fill="#111" stroke="#3b82f6" stroke-width="1.5"/>
-  <circle cx="58" cy="26" r="2.5" fill="#3b82f6"/>
-  <path d="M74 18 L80 14 L80 22 Z" fill="#3b82f6" opacity="0.7"/>
+  <path d="M6 22 L14 10 L30 6 L52 6 L66 12 L74 18 L74 26 L6 26 Z" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <path d="M16 10 L28 4 L50 4 L62 10 Z" fill="#bfdbfe" stroke="#2563eb" stroke-width="1"/>
+  <path d="M19 10 L27 5 L38 5 L38 10 Z" fill="#2563eb" opacity="0.4"/>
+  <path d="M40 5 L50 5 L58 10 L40 10 Z" fill="#2563eb" opacity="0.4"/>
+  <circle cx="20" cy="26" r="6" fill="#1e40af" stroke="#2563eb" stroke-width="1.5"/>
+  <circle cx="20" cy="26" r="2.5" fill="#2563eb"/>
+  <circle cx="58" cy="26" r="6" fill="#1e40af" stroke="#2563eb" stroke-width="1.5"/>
+  <circle cx="58" cy="26" r="2.5" fill="#2563eb"/>
+  <path d="M74 18 L80 14 L80 22 Z" fill="#2563eb" opacity="0.7"/>
   <path d="M74 20 L82 16 L82 24 Z" fill="#60a5fa" opacity="0.35"/>
   <rect x="5" y="19" width="3" height="5" rx="1" fill="#ef4444" opacity="0.8"/>
 </svg>
@@ -208,6 +208,38 @@
     </div>
   </section>
 
+  <!-- CAR BRANDS TICKER -->
+  <div class="brands-ticker">
+    <div class="brands-track" id="brandsTrack">
+      <!-- Set 1 -->
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Toyota</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Mercedes-Benz</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> BMW</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Honda</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Audi</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Land Rover</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Lexus</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Porsche</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Mitsubishi</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Nissan</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Hyundai</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> KIA</div>
+      <!-- Set 2 (duplicate for infinite loop) -->
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Toyota</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Mercedes-Benz</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> BMW</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Honda</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Audi</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Land Rover</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Lexus</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Porsche</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Mitsubishi</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Nissan</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> Hyundai</div>
+      <div class="brand-item"><i class="fa-solid fa-car"></i> KIA</div>
+    </div>
+  </div>
+
   <!-- ABOUT / WHY US -->
   <section id="about">
     <div class="reveal">
@@ -256,7 +288,7 @@
       <div class="car-card reveal">
         <div class="car-img-wrap">
           <span class="car-badge">Available</span>
-          <img src="https://www.pngmart.com/files/22/Toyota-Land-Cruiser-PNG-Isolated-File.png" alt="Land Cruiser">
+          <img src="./images/Land Cruiser.png" alt="Land Cruiser">
         </div>
         <div class="car-info">
           <div class="car-name">Toyota Land Cruiser</div>
@@ -381,7 +413,7 @@
     </div>
   </section>
 
-  <!-- ── EVENT PACKAGES ── -->
+  <!-- EVENT PACKAGES -->
   <section id="packages">
     <div class="packages-header reveal" style="text-align:center; max-width:700px; margin:0 auto;">
       <div class="section-tag">Special Deals</div>
@@ -400,18 +432,9 @@
         <div class="pkg-name">Silver Package</div>
         <div class="pkg-tagline">Buget-Friendly Safar</div>
         <div class="pkg-cars">
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Corolla <strong>×2</strong></span>
-          </div>
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Honda Civic <strong>×1</strong></span>
-          </div>
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Grande <strong>×1</strong></span>
-          </div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Corolla <strong>×2</strong></span></div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Honda Civic <strong>×1</strong></span></div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Grande <strong>×1</strong></span></div>
         </div>
         <div class="pkg-details">
           <div class="pkg-detail-item"><i class="fa-solid fa-car-side"></i> 4 Gaariyan Total</div>
@@ -433,18 +456,9 @@
         <div class="pkg-name">Gold Package</div>
         <div class="pkg-tagline">Premium Event Experience</div>
         <div class="pkg-cars">
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Fortuner <strong>×2</strong></span>
-          </div>
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Land Cruiser <strong>×2</strong></span>
-          </div>
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Grande <strong>×2</strong></span>
-          </div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Fortuner <strong>×2</strong></span></div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Land Cruiser <strong>×2</strong></span></div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Grande <strong>×2</strong></span></div>
         </div>
         <div class="pkg-details">
           <div class="pkg-detail-item"><i class="fa-solid fa-car-side"></i> 6 Gaariyan Total</div>
@@ -466,18 +480,9 @@
         <div class="pkg-name">Platinum Package</div>
         <div class="pkg-tagline">Ultra Luxury Experience</div>
         <div class="pkg-cars">
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Mercedes S-Class <strong>×2</strong></span>
-          </div>
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Land Cruiser <strong>×3</strong></span>
-          </div>
-          <div class="pkg-car-item">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Toyota Fortuner <strong>×3</strong></span>
-          </div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Mercedes S-Class <strong>×2</strong></span></div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Land Cruiser <strong>×3</strong></span></div>
+          <div class="pkg-car-item"><i class="fa-solid fa-circle-check"></i><span>Toyota Fortuner <strong>×3</strong></span></div>
         </div>
         <div class="pkg-details">
           <div class="pkg-detail-item"><i class="fa-solid fa-car-side"></i> 8 Gaariyan Total</div>
@@ -503,7 +508,6 @@
     <div class="reviews-track-wrap">
       <div class="reviews-track" id="reviewsTrack">
 
-        <!-- Original Reviews in Roman Urdu -->
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <p class="review-text">"Land Cruiser family trip ke liye rent ki. Ek dam zabardast aur aaram deh gari thi. Team ne seedha ghar par deliver ki aur gari bilkul saaf suthra thi. 10/10 tajurba raha."</p>
