@@ -59,6 +59,7 @@
     <li><a href="#home" class="drawer-link"><i class="fa-solid fa-house"></i> Home</a></li>
     <li><a href="#about" class="drawer-link"><i class="fa-solid fa-circle-info"></i> About</a></li>
     <li><a href="#cars" class="drawer-link"><i class="fa-solid fa-car"></i> Cars</a></li>
+    <li><a href="#packages" class="drawer-link"><i class="fa-solid fa-box"></i> Packages</a></li>
     <li><a href="#reviews" class="drawer-link"><i class="fa-solid fa-star"></i> Reviews</a></li>
     <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-phone"></i> Contact</a></li>
   </ul>
@@ -99,18 +100,61 @@
           <label class="mform-label"><i class="fa-solid fa-user"></i> Driver Option</label>
           <div class="driver-toggle">
             <div class="driver-option">
-              <input type="radio" name="driverOption" id="withDriver" value="With Driver" checked>
-              <label for="withDriver"><i class="fa-solid fa-user-tie"></i> With Driver</label>
+              <input type="radio" name="driverOption" id="withDriver" value="Driver ke Saath" checked>
+              <label for="withDriver"><i class="fa-solid fa-user-tie"></i> Driver ke Saath</label>
             </div>
             <div class="driver-option">
-              <input type="radio" name="driverOption" id="withoutDriver" value="Without Driver">
-              <label for="withoutDriver"><i class="fa-solid fa-steering-wheel"></i> Self Drive</label>
+              <input type="radio" name="driverOption" id="withoutDriver" value="Khud Chalana">
+              <label for="withoutDriver"><i class="fa-solid fa-steering-wheel"></i> Khud Chalana</label>
             </div>
           </div>
         </div>
 
         <button type="submit" class="modal-submit-btn">
-          <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Par Book Karain
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEW MODAL -->
+<div class="modal-overlay" id="reviewModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Apna <span>Review Dain</span></div>
+        <div class="modal-car-name">Apna tajurba share karein</div>
+      </div>
+      <button class="modal-close-btn" id="reviewModalClose"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form class="modal-form" id="reviewForm">
+        <div class="mform-group">
+          <label class="mform-label"><i class="fa-solid fa-user"></i> Aapka Naam</label>
+          <input class="mform-input" type="text" id="reviewName" placeholder="Ahmed Khan" required>
+        </div>
+        <div class="mform-group">
+          <label class="mform-label"><i class="fa-solid fa-location-dot"></i> Sheher</label>
+          <input class="mform-input" type="text" id="reviewCity" placeholder="Karachi, Pakistan">
+        </div>
+        <div class="mform-group">
+          <label class="mform-label"><i class="fa-solid fa-star"></i> Rating</label>
+          <div class="star-rating" id="starRating">
+            <span class="star-btn" data-val="1"><i class="fa-solid fa-star"></i></span>
+            <span class="star-btn" data-val="2"><i class="fa-solid fa-star"></i></span>
+            <span class="star-btn" data-val="3"><i class="fa-solid fa-star"></i></span>
+            <span class="star-btn" data-val="4"><i class="fa-solid fa-star"></i></span>
+            <span class="star-btn" data-val="5"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <input type="hidden" id="reviewStars" value="5">
+        </div>
+        <div class="mform-group">
+          <label class="mform-label"><i class="fa-solid fa-message"></i> Aapka Review</label>
+          <textarea class="mform-input" id="reviewMessage" rows="4" placeholder="Apna tajurba yahan likhein..." required style="resize:none; padding:13px 16px; clip-path:polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);"></textarea>
+        </div>
+        <button type="submit" class="modal-submit-btn" style="background:var(--blue);">
+          <i class="fa-solid fa-paper-plane"></i> Review Submit Karain
         </button>
       </form>
     </div>
@@ -155,6 +199,11 @@
     </div>
     <div class="hero-car-wrap">
       <img class="hero-car-img" src="bmw i8.png" alt="BMW i8">
+      <div class="hero-car-glow"></div>
+    </div>
+    <!-- Mobile Hero Car -->
+    <div class="hero-car-wrap-mobile">
+      <img class="hero-car-img-mobile" src="bmw i8.png" alt="BMW i8">
       <div class="hero-car-glow"></div>
     </div>
   </section>
@@ -332,67 +381,187 @@
     </div>
   </section>
 
+  <!-- ── EVENT PACKAGES ── -->
+  <section id="packages">
+    <div class="packages-header reveal" style="text-align:center; max-width:700px; margin:0 auto;">
+      <div class="section-tag">Special Deals</div>
+      <h2 class="section-h2">OUR AFFORDABLE EVENT PACKAGES</h2>
+      <div class="divider" style="margin: 20px auto 0;"></div>
+      <p class="section-sub" style="margin: 20px auto 0; text-align:center;">Shadion, corporate events, VIP transfers — sab ke liye behtareen packages. Ek click mein apna package book karain.</p>
+    </div>
+    <div class="packages-grid">
+
+      <!-- Package 1: Silver -->
+      <div class="pkg-card reveal">
+        <div class="pkg-badge-wrap">
+          <span class="pkg-badge silver">Silver</span>
+        </div>
+        <div class="pkg-icon"><i class="fa-solid fa-car"></i></div>
+        <div class="pkg-name">Silver Package</div>
+        <div class="pkg-tagline">Buget-Friendly Safar</div>
+        <div class="pkg-cars">
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Corolla <strong>×2</strong></span>
+          </div>
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Honda Civic <strong>×1</strong></span>
+          </div>
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Grande <strong>×1</strong></span>
+          </div>
+        </div>
+        <div class="pkg-details">
+          <div class="pkg-detail-item"><i class="fa-solid fa-car-side"></i> 4 Gaariyan Total</div>
+          <div class="pkg-detail-item"><i class="fa-solid fa-user-tie"></i> Driver Included</div>
+          <div class="pkg-detail-item"><i class="fa-solid fa-clock"></i> 12 Ghante</div>
+        </div>
+        <div class="pkg-price">PKR 60K <small>/ event</small></div>
+        <button class="pkg-book-btn" data-package="Silver Package" data-cars="Toyota Corolla x2, Honda Civic x1, Toyota Grande x1" data-price="PKR 60,000">
+          <i class="fa-brands fa-whatsapp"></i> Book Karain
+        </button>
+      </div>
+
+      <!-- Package 2: Gold (Featured) -->
+      <div class="pkg-card pkg-featured reveal">
+        <div class="pkg-badge-wrap">
+          <span class="pkg-badge gold">Gold ★ Most Popular</span>
+        </div>
+        <div class="pkg-icon"><i class="fa-solid fa-crown"></i></div>
+        <div class="pkg-name">Gold Package</div>
+        <div class="pkg-tagline">Premium Event Experience</div>
+        <div class="pkg-cars">
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Fortuner <strong>×2</strong></span>
+          </div>
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Land Cruiser <strong>×2</strong></span>
+          </div>
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Grande <strong>×2</strong></span>
+          </div>
+        </div>
+        <div class="pkg-details">
+          <div class="pkg-detail-item"><i class="fa-solid fa-car-side"></i> 6 Gaariyan Total</div>
+          <div class="pkg-detail-item"><i class="fa-solid fa-user-tie"></i> Driver Included</div>
+          <div class="pkg-detail-item"><i class="fa-solid fa-clock"></i> 24 Ghante</div>
+        </div>
+        <div class="pkg-price">PKR 1.8L <small>/ event</small></div>
+        <button class="pkg-book-btn" data-package="Gold Package" data-cars="Toyota Fortuner x2, Toyota Land Cruiser x2, Toyota Grande x2" data-price="PKR 1,80,000">
+          <i class="fa-brands fa-whatsapp"></i> Book Karain
+        </button>
+      </div>
+
+      <!-- Package 3: Platinum -->
+      <div class="pkg-card reveal">
+        <div class="pkg-badge-wrap">
+          <span class="pkg-badge platinum">Platinum</span>
+        </div>
+        <div class="pkg-icon"><i class="fa-solid fa-gem"></i></div>
+        <div class="pkg-name">Platinum Package</div>
+        <div class="pkg-tagline">Ultra Luxury Experience</div>
+        <div class="pkg-cars">
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Mercedes S-Class <strong>×2</strong></span>
+          </div>
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Land Cruiser <strong>×3</strong></span>
+          </div>
+          <div class="pkg-car-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Toyota Fortuner <strong>×3</strong></span>
+          </div>
+        </div>
+        <div class="pkg-details">
+          <div class="pkg-detail-item"><i class="fa-solid fa-car-side"></i> 8 Gaariyan Total</div>
+          <div class="pkg-detail-item"><i class="fa-solid fa-user-tie"></i> VIP Driver Included</div>
+          <div class="pkg-detail-item"><i class="fa-solid fa-clock"></i> 48 Ghante</div>
+        </div>
+        <div class="pkg-price">PKR 4.5L <small>/ event</small></div>
+        <button class="pkg-book-btn" data-package="Platinum Package" data-cars="Mercedes S-Class x2, Toyota Land Cruiser x3, Toyota Fortuner x3" data-price="PKR 4,50,000">
+          <i class="fa-brands fa-whatsapp"></i> Book Karain
+        </button>
+      </div>
+
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section id="reviews">
     <div class="reveal" style="text-align:center; max-width:600px; margin: 0 auto;">
       <div class="section-tag">Client Reviews</div>
-      <h2 class="section-h2">WHAT PEOPLE SAY</h2>
+      <h2 class="section-h2">What Our Clients Say</h2>
       <div class="divider" style="margin: 20px auto 0;"></div>
     </div>
     <div class="reviews-track-wrap">
       <div class="reviews-track" id="reviewsTrack">
+
+        <!-- Original Reviews in Roman Urdu -->
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Rented the Land Cruiser for a family trip. Absolutely jaw-dropping comfort. The team delivered it right to my door and the car was immaculate. 10/10 experience."</p>
+          <p class="review-text">"Land Cruiser family trip ke liye rent ki. Ek dam zabardast aur aaram deh gari thi. Team ne seedha ghar par deliver ki aur gari bilkul saaf suthra thi. 10/10 tajurba raha."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">AK</div>
             <div><div class="reviewer-name">Ahmed Khan</div><div class="reviewer-loc">Karachi, Pakistan</div></div>
           </div>
         </div>
+
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Professional service from start to finish. The Mercedes S-Class was in perfect condition and the whole booking process was seamless. Highly recommend ApexDrive!"</p>
+          <p class="review-text">"Shuru se le kar akhir tak poori professional service mili. Mercedes S-Class bilkul perfect condition mein thi aur booking process bhi bohat asaan tha. ApexDrive ko zaroor recommend karunga!"</p>
           <div class="reviewer">
             <div class="reviewer-avatar">SR</div>
             <div><div class="reviewer-name">Sara Raza</div><div class="reviewer-loc">Lahore, Pakistan</div></div>
           </div>
         </div>
+
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Used ApexDrive for a corporate event. They had 5 vehicles lined up on time, every detail perfect. Our clients were seriously impressed. Will use again."</p>
+          <p class="review-text">"Corporate event ke liye ApexDrive use ki. 5 gaariyan waqt par bilkul tayar thi, har cheez ekdum perfect thi. Hamare clients bhi bohat mutasir hue. Dobara zaroor use karunga."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">FM</div>
             <div><div class="reviewer-name">Farhan Malik</div><div class="reviewer-loc">Islamabad, Pakistan</div></div>
           </div>
         </div>
+
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-          <p class="review-text">"Rented the Grande for my wedding week. The car was stunning and everyone noticed. The chauffeur was incredibly professional. Truly premium experience."</p>
+          <p class="review-text">"Shadi ke hafte ke liye Grande rent ki. Gari itni khubsoorat thi ke sab ne notice kiya. Chauffeur bhi bohat professional tha. Sach mein ek premium tajurba tha."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">ZA</div>
             <div><div class="reviewer-name">Zara Anwar</div><div class="reviewer-loc">Karachi, Pakistan</div></div>
           </div>
         </div>
+
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"The Fortuner drove like a dream along the Karachi seafront. ApexDrive made the whole experience completely stress-free. Worth every rupee spent."</p>
+          <p class="review-text">"Fortuner Karachi seafront par bohat achhi chali. ApexDrive ne poora tajurba bilkul stress-free bana diya. Har rupee wasool tha, sachchi baat hai."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">OQ</div>
             <div><div class="reviewer-name">Omar Qureshi</div><div class="reviewer-loc">Karachi, Pakistan</div></div>
           </div>
         </div>
+
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Best car rental experience in Pakistan by far. The fleet is real luxury — nothing like the other agencies. Customer support is always available and super responsive."</p>
+          <p class="review-text">"Pakistan mein abhi tak ki sabse behtareen car rental service. Fleet mein sach mein luxury gaariyan hain — dusri agencies jaise bilkul nahi. Customer support hamesha available aur super responsive hai."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">HS</div>
             <div><div class="reviewer-name">Hina Shah</div><div class="reviewer-loc">DHA Karachi</div></div>
           </div>
         </div>
+
         <!-- Duplicated for infinite scroll -->
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Rented the Land Cruiser for a family trip. Absolutely jaw-dropping comfort. The team delivered it right to my door and the car was immaculate. 10/10 experience."</p>
+          <p class="review-text">"Land Cruiser family trip ke liye rent ki. Ek dam zabardast aur aaram deh gari thi. Team ne seedha ghar par deliver ki aur gari bilkul saaf suthra thi. 10/10 tajurba raha."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">AK</div>
             <div><div class="reviewer-name">Ahmed Khan</div><div class="reviewer-loc">Karachi, Pakistan</div></div>
@@ -400,7 +569,7 @@
         </div>
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Professional service from start to finish. The Mercedes S-Class was in perfect condition and the whole booking process was seamless. Highly recommend ApexDrive!"</p>
+          <p class="review-text">"Shuru se le kar akhir tak poori professional service mili. Mercedes S-Class bilkul perfect condition mein thi aur booking process bhi bohat asaan tha. ApexDrive ko zaroor recommend karunga!"</p>
           <div class="reviewer">
             <div class="reviewer-avatar">SR</div>
             <div><div class="reviewer-name">Sara Raza</div><div class="reviewer-loc">Lahore, Pakistan</div></div>
@@ -408,7 +577,7 @@
         </div>
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Used ApexDrive for a corporate event. They had 5 vehicles lined up on time, every detail perfect. Our clients were seriously impressed. Will use again."</p>
+          <p class="review-text">"Corporate event ke liye ApexDrive use ki. 5 gaariyan waqt par bilkul tayar thi, har cheez ekdum perfect thi. Hamare clients bhi bohat mutasir hue. Dobara zaroor use karunga."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">FM</div>
             <div><div class="reviewer-name">Farhan Malik</div><div class="reviewer-loc">Islamabad, Pakistan</div></div>
@@ -416,7 +585,7 @@
         </div>
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-          <p class="review-text">"Rented the Grande for my wedding week. The car was stunning and everyone noticed. The chauffeur was incredibly professional. Truly premium experience."</p>
+          <p class="review-text">"Shadi ke hafte ke liye Grande rent ki. Gari itni khubsoorat thi ke sab ne notice kiya. Chauffeur bhi bohat professional tha. Sach mein ek premium tajurba tha."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">ZA</div>
             <div><div class="reviewer-name">Zara Anwar</div><div class="reviewer-loc">Karachi, Pakistan</div></div>
@@ -424,7 +593,7 @@
         </div>
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"The Fortuner drove like a dream along the Karachi seafront. ApexDrive made the whole experience completely stress-free. Worth every rupee spent."</p>
+          <p class="review-text">"Fortuner Karachi seafront par bohat achhi chali. ApexDrive ne poora tajurba bilkul stress-free bana diya. Har rupee wasool tha, sachchi baat hai."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">OQ</div>
             <div><div class="reviewer-name">Omar Qureshi</div><div class="reviewer-loc">Karachi, Pakistan</div></div>
@@ -432,14 +601,30 @@
         </div>
         <div class="review-card">
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="review-text">"Best car rental experience in Pakistan by far. The fleet is real luxury — nothing like the other agencies. Customer support is always available and super responsive."</p>
+          <p class="review-text">"Pakistan mein abhi tak ki sabse behtareen car rental service. Fleet mein sach mein luxury gaariyan hain — dusri agencies jaise bilkul nahi. Customer support hamesha available aur super responsive hai."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">HS</div>
             <div><div class="reviewer-name">Hina Shah</div><div class="reviewer-loc">DHA Karachi</div></div>
           </div>
         </div>
+
       </div>
     </div>
+
+    <!-- Add Review Button -->
+    <div class="add-review-wrap reveal">
+      <div class="add-review-text">
+        <div class="add-review-title">Add Your Review</div>
+        <div class="add-review-sub">Share your experience and help others make informed decisions</div>
+      </div>
+      <button class="add-review-btn" id="openReviewModal">
+        <i class="fa-solid fa-pen-to-square"></i> Write a Review
+      </button>
+    </div>
+
+    <!-- Dynamic User Reviews -->
+    <div id="userReviewsGrid" class="user-reviews-grid"></div>
+
   </section>
 
   <!-- CONTACT -->
@@ -464,7 +649,7 @@
           <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
           <div>
             <div class="contact-detail-label">Phone</div>
-            <div class="contact-detail-val">+92 300 1234567</div>
+            <div class="contact-detail-val">+92 319 3921895</div>
           </div>
         </div>
         <div class="contact-info-item">
@@ -472,7 +657,7 @@
           <div>
             <div class="contact-detail-label">WhatsApp</div>
             <div class="contact-detail-val">
-              <a href="https://wa.me/923001234567" target="_blank">
+              <a href="https://wa.me/923193921895" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
               </a>
             </div>
@@ -507,7 +692,7 @@
             </div>
             <div class="form-group">
               <label class="form-label"><i class="fa-solid fa-phone"></i> Phone Number</label>
-              <input class="form-input" type="tel" id="evPhone" placeholder="+92 300 0000000" required>
+              <input class="form-input" type="tel" id="evPhone" placeholder="+92 319 3921895" required>
             </div>
           </div>
           <div class="form-row">
@@ -547,6 +732,7 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#cars">Fleet</a>
+      <a href="#packages">Packages</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </div>

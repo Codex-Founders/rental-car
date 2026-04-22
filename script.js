@@ -107,7 +107,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
   const pickup    = document.getElementById('pickupDate').value;
   const ret       = document.getElementById('returnDate').value;
   const location  = document.getElementById('pickupLocation').value;
-  const driver    = document.querySelector('input[name="driverOption"]:checked')?.value || 'Without Driver';
+  const driver    = document.querySelector('input[name="driverOption"]:checked')?.value || 'Khud Chalana';
 
   if (!pickup || !ret || !location) {
     alert('Please fill all fields.');
@@ -116,14 +116,14 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
 
   const msg =
     `*APEX DRIVE — Booking Request*\n\n` +
-    `*Car:* ${car}\n` +
+    `*Gari:* ${car}\n` +
     `*Pickup Date:* ${pickup}\n` +
-    `*Return Date:* ${ret}\n` +
+    `*Wapsi Date:* ${ret}\n` +
     `*Location:* ${location}\n` +
     `*Driver:* ${driver}\n\n` +
-    `_Sent via ApexDrive website_`;
+    `_ApexDrive website se bheja gaya_`;
 
-  const wa = `https://wa.me/923001234567?text=${encodeURIComponent(msg)}`;
+  const wa = `https://wa.me/923193921895?text=${encodeURIComponent(msg)}`;
   window.open(wa, '_blank');
   closeModal();
 });
@@ -146,15 +146,143 @@ document.getElementById('eventForm').addEventListener('submit', function(e) {
 
   const msg =
     `*APEX DRIVE — Event Booking Enquiry*\n\n` +
-    `*Name:* ${name}\n` +
+    `*Naam:* ${name}\n` +
     `*Phone:* ${phone}\n` +
     `*Car Model:* ${carModel}\n` +
-    `*Quantity:* ${qty}\n` +
+    `*Tadadad:* ${qty}\n` +
     `*Event Date:* ${date}\n` +
     `*Message:* ${message || 'N/A'}\n\n` +
-    `_Sent via ApexDrive Event Form_`;
+    `_ApexDrive Event Form se bheja gaya_`;
 
-  const wa = `https://wa.me/923001234567?text=${encodeURIComponent(msg)}`;
+  const wa = `https://wa.me/923193921895?text=${encodeURIComponent(msg)}`;
   window.open(wa, '_blank');
   this.reset();
+});
+
+/* ─── PACKAGE BOOKING ─── */
+document.querySelectorAll('.pkg-book-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pkg   = btn.dataset.package;
+    const cars  = btn.dataset.cars;
+    const price = btn.dataset.price;
+
+    const msg =
+      `*APEX DRIVE — Event Package Booking*\n\n` +
+      `*Package:* ${pkg}\n` +
+      `*Gaariyan:* ${cars}\n` +
+      `*Qeemat:* ${price}\n\n` +
+      `Mujhe is package ke baare mein aur jankari chahiye.\n\n` +
+      `_ApexDrive Packages section se bheja gaya_`;
+
+    const wa = `https://wa.me/923193921895?text=${encodeURIComponent(msg)}`;
+    window.open(wa, '_blank');
+  });
+});
+
+/* ─── STAR RATING ─── */
+let selectedStars = 5;
+const starBtns = document.querySelectorAll('.star-btn');
+
+starBtns.forEach(btn => {
+  btn.addEventListener('mouseover', () => {
+    const val = parseInt(btn.dataset.val);
+    starBtns.forEach((s, i) => {
+      s.classList.toggle('active', i < val);
+    });
+  });
+  btn.addEventListener('click', () => {
+    selectedStars = parseInt(btn.dataset.val);
+    document.getElementById('reviewStars').value = selectedStars;
+    starBtns.forEach((s, i) => {
+      s.classList.toggle('selected', i < selectedStars);
+      s.classList.toggle('active', i < selectedStars);
+    });
+  });
+});
+
+document.getElementById('starRating').addEventListener('mouseleave', () => {
+  starBtns.forEach((s, i) => {
+    s.classList.toggle('active', i < selectedStars);
+  });
+});
+
+// Init all 5 stars selected
+starBtns.forEach((s, i) => s.classList.toggle('active', i < 5));
+
+/* ─── REVIEW MODAL ─── */
+const reviewModal = document.getElementById('reviewModal');
+const reviewModalClose = document.getElementById('reviewModalClose');
+const openReviewBtn = document.getElementById('openReviewModal');
+const userReviewsGrid = document.getElementById('userReviewsGrid');
+
+function openReviewModal() {
+  reviewModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeReviewModal() {
+  reviewModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+openReviewBtn.addEventListener('click', openReviewModal);
+reviewModalClose.addEventListener('click', closeReviewModal);
+reviewModal.addEventListener('click', e => { if (e.target === reviewModal) closeReviewModal(); });
+
+/* ─── REVIEW SUBMIT ─── */
+let userReviews = JSON.parse(localStorage.getItem('apexReviews') || '[]');
+
+function renderUserReviews() {
+  if (!userReviews.length) {
+    userReviewsGrid.style.display = 'none';
+    return;
+  }
+  userReviewsGrid.style.display = 'grid';
+  userReviewsGrid.innerHTML = userReviews.map(r => {
+    const stars = Array.from({length: 5}, (_, i) =>
+      `<i class="fa-${i < r.stars ? 'solid' : 'regular'} fa-star"></i>`
+    ).join('');
+    const initials = r.name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+    return `
+      <div class="user-review-card">
+        <div class="stars">${stars}</div>
+        <p class="review-text">"${r.message}"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#3b82f6,#1e40af)">${initials}</div>
+          <div>
+            <div class="reviewer-name">${r.name}</div>
+            <div class="reviewer-loc">${r.city || 'Pakistan'}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+renderUserReviews();
+
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name    = document.getElementById('reviewName').value.trim();
+  const city    = document.getElementById('reviewCity').value.trim();
+  const stars   = parseInt(document.getElementById('reviewStars').value) || 5;
+  const message = document.getElementById('reviewMessage').value.trim();
+
+  if (!name || !message) { alert('Naam aur review zaroor likhein.'); return; }
+
+  const review = { name, city, stars, message, date: new Date().toLocaleDateString('ur-PK') };
+  userReviews.unshift(review);
+  localStorage.setItem('apexReviews', JSON.stringify(userReviews));
+  renderUserReviews();
+
+  this.reset();
+  selectedStars = 5;
+  starBtns.forEach((s, i) => { s.classList.toggle('active', i < 5); s.classList.remove('selected'); });
+  document.getElementById('reviewStars').value = 5;
+
+  closeReviewModal();
+
+  // Scroll to user reviews
+  setTimeout(() => {
+    userReviewsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
 });
