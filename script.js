@@ -286,3 +286,8 @@ document.getElementById('reviewForm').addEventListener('submit', function(e) {
     userReviewsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 300);
 });
+/* ─── SCROLL TOP BUTTON ─── */
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+});

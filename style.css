@@ -1535,3 +1535,61 @@ footer {
     white-space: nowrap;
   }
 }
+/* ── FLOATING BUTTONS ── */
+.float-btns {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 4000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.float-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow 0.3s, opacity 0.3s;
+  cursor: none;
+  border: none;
+}
+
+.whatsapp-float {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+}
+.whatsapp-float:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+}
+
+.scroll-top {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+.scroll-top:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.55);
+}
+
+@media (max-width: 600px) {
+  .float-btns { bottom: 20px; right: 16px; }
+  .float-btn { width: 46px; height: 46px; font-size: 1.1rem; }
+}
