@@ -1593,3 +1593,183 @@ footer {
   .float-btns { bottom: 20px; right: 16px; }
   .float-btn { width: 46px; height: 46px; font-size: 1.1rem; }
 }
+
+/* ═══════════════════════════════════════════════
+   APEX DRIVE — BMW CINEMATIC INTRO  (append to style.css)
+   ═══════════════════════════════════════════════ */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  animation: introDim 0.6s ease-in 4.2s forwards;
+}
+@keyframes introDim {
+  to { opacity: 0; pointer-events: none; }
+}
+
+#intro-scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#intro-car-frame {
+  position: relative;
+  width: min(680px, 94vw);
+  margin-bottom: 50px;
+  animation: carReveal 1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+@keyframes carReveal {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+#intro-bmw {
+  width: 100%;
+  display: block;
+  mix-blend-mode: screen;
+  position: relative;
+  z-index: 2;
+  filter: brightness(1.08) contrast(1.05);
+}
+
+/* ── HEADLIGHT WRAP — centered exactly on each headlight ── */
+.hl-wrap {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+}
+/* Left HL: 31.3% from left, 54.4% from top */
+.hl-wrap-l { left: 31.3%; top: 54.4%; }
+/* Right HL: 70.3% from left, 54.4% from top */
+.hl-wrap-r { left: 70.3%; top: 54.4%; }
+
+/* outer soft bloom */
+.hl-outer {
+  position: absolute;
+  width: 120px; height: 48px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(255,220,120,0.30) 0%, transparent 70%);
+  filter: blur(16px);
+  animation: hlPulse 2s ease-in-out infinite alternate;
+}
+/* mid glow */
+.hl-mid {
+  position: absolute;
+  width: 70px; height: 28px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(255,210,80,0.65) 0%, rgba(255,185,30,0.25) 55%, transparent 80%);
+  filter: blur(6px);
+  animation: hlPulse 1.6s ease-in-out 0.1s infinite alternate;
+}
+/* bright core */
+.hl-core {
+  position: absolute;
+  width: 28px; height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(255,255,240,1) 0%, rgba(255,230,120,0.7) 50%, transparent 80%);
+  filter: blur(2px);
+  animation: hlPulse 1.2s ease-in-out 0.2s infinite alternate;
+}
+@keyframes hlPulse {
+  from { opacity: 0.78; }
+  to   { opacity: 1; }
+}
+
+/* ── BEAM SHAFTS ── */
+.hl-beam {
+  position: absolute;
+  top: 54.4%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(12px);
+  width: 0; height: 0;
+  transform: translateY(-50%);
+  animation: beamIn 1.2s ease-out 1s both;
+}
+.hl-beam-l {
+  left: 0;
+  border-top:    70px solid transparent;
+  border-bottom:  4px solid transparent;
+  border-right: 200px solid rgba(255,200,60,0.06);
+}
+.hl-beam-r {
+  right: 0;
+  border-top:    70px solid transparent;
+  border-bottom:  4px solid transparent;
+  border-left:  200px solid rgba(255,200,60,0.06);
+}
+@keyframes beamIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── FLOOR REFLECTION ── */
+#floor-ref {
+  position: absolute;
+  bottom: -8%; left: 20%; right: 20%;
+  height: 30%;
+  background: radial-gradient(ellipse at 50% 0%,
+    rgba(255,200,60,0.16) 0%,
+    rgba(255,170,20,0.06) 50%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(10px);
+  animation: floorPulse 2s ease-in-out infinite alternate;
+}
+@keyframes floorPulse {
+  from { opacity: 0.55; }
+  to   { opacity: 1; }
+}
+
+/* ── LOGO — APEX white, DRIVE blue ── */
+/* #intro-logo {
+  margin-right: -10px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.35em;
+  color: #ffffff;
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgba(37,99,235,0.5), 0 0 40px rgba(37,99,235,0.2);
+  animation: logoReveal 0.7s ease-out 1.7s both;
+  z-index: 10;
+}
+#intro-logo span {
+
+  color: #3b82f6;
+  text-shadow: 0 0 18px rgba(59,130,246,0.9), 0 0 40px rgba(59,130,246,0.5);
+}
+@keyframes logoReveal {
+  from { opacity: 0; letter-spacing: 0.8em; }
+  to   { opacity: 1; letter-spacing: 0.35em; }
+} */
+
+#intro-skip {
+  position: absolute;
+  bottom: 2%; right: 3%;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  font-family: sans-serif;
+  z-index: 10;
+}

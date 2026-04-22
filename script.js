@@ -291,3 +291,35 @@ const scrollTopBtn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
   scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
 });
+
+
+/* ═══════════════════════════════════════════════
+   APEX DRIVE — BMW CINEMATIC INTRO  (append to script.js)
+   ═══════════════════════════════════════════════ */
+(function () {
+  var intro = document.getElementById('intro');
+  if (!intro) return;
+
+  /* Lock scroll while intro plays */
+  document.body.style.overflow = 'hidden';
+
+  /* Auto-dismiss after 4.8s (CSS fade starts at 4.2s) */
+  var timer = setTimeout(dismiss, 4900);
+
+  /* Click / tap anywhere = skip */
+  intro.addEventListener('click', function () {
+    clearTimeout(timer);
+    dismiss(true);
+  });
+
+  function dismiss(fast) {
+    document.body.style.overflow = '';
+    if (fast) {
+      intro.style.transition = 'opacity 0.35s ease';
+      intro.style.opacity = '0';
+      setTimeout(function () { intro.style.display = 'none'; }, 370);
+    } else {
+      setTimeout(function () { intro.style.display = 'none'; }, 700);
+    }
+  }
+})();
